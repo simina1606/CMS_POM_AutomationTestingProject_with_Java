@@ -63,6 +63,5 @@ public class PositiveTests extends BaseTestClass {
 
         CMSLoginPageObject cmsLoginPageObject1 = cmsLogoutPageObject.clickLogoutButton();
 
-
     }
 }
