@@ -19,7 +19,7 @@ public class PositiveTests extends BaseTestClass {
         cmsContactPageObject.selectAllCheckBoxes();
         cmsContactPageObject.selectRadioButton();
         Assert.assertTrue("Send button is not visible", cmsContactPageObject.isSendButtonVisible());
-        //cmsContactPageObject.clickSendButton();
+        cmsContactPageObject.clickSendButton();
 
     }
 
@@ -29,7 +29,7 @@ public class PositiveTests extends BaseTestClass {
         cmsLandingPageObject.openHomePage();
 
         CMSRegisterPageObject cmsRegisterPageObject = cmsLandingPageObject.clickRegisterForm();
-        //Assert.assertEquals("Register page url is correct", cmsRegisterPageObject.getPageUrl(), cmsRegisterPageObject.openRegisterPage());
+        Assert.assertEquals("Register page Url is correct", cmsRegisterPageObject.getPageUrl(), cmsRegisterPageObject.openRegisterPage());
 
         cmsRegisterPageObject.requiredFields("FirstNameLastName", "A@test.com", "Password123!", "Password123!");
         Assert.assertTrue("Register button is not visible", cmsRegisterPageObject.isRegisterButtonVisible());
@@ -37,7 +37,9 @@ public class PositiveTests extends BaseTestClass {
         CMSAccountCreatedPageObject cmsAccountCreatedPageObject = cmsRegisterPageObject.clickRegisterButton();
         String expectedUrl = "https://testare-manuala.locdejoacapentruitsti.com/blog/register/";
         Assert.assertEquals("Url is correct", expectedUrl, cmsAccountCreatedPageObject.getPageUrl());
-        Assert.assertTrue("Successful account created message is not displayed", cmsAccountCreatedPageObject.getAccountCreatedSuccesfulMessage());
+
+        String expectedSuccesfullMessage = "The account FirstNameLastName has been successfully created!"
+        Assert.assertEquals("Successfull account created message is not displayed", expectedSuccesfullMessage,cmsAccountCreatedPageObject.getAccountCreatedSuccesfulMessage());
     }
 
     @Test
@@ -56,7 +58,8 @@ public class PositiveTests extends BaseTestClass {
         CMSLandingPageObject cmsLandingPageObject1 = cmsLoginPageObject.clickLoginButton();
         CMSLogoutPageObject cmsLogoutPageObject = cmsLandingPageObject1.clickLogoutLink();
         cmsLogoutPageObject.openLogoutPage();
-        Assert.assertTrue("The message on logout page is not displayed", cmsLogoutPageObject.logoutpageText());
+        String expectedLogoutText ="You are currently logged in as FirstNameLastName."
+        Assert.assertEquals("The message on logout page is not displayed", expectedLogoutText, cmsLogoutPageObject.logoutpageText());
 
         CMSLoginPageObject cmsLoginPageObject1 = cmsLogoutPageObject.clickLogoutButton();
 
