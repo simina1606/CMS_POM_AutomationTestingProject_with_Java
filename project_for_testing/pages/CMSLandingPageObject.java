@@ -15,6 +15,9 @@ public class CMSLandingPageObject extends CMSBasePageObject {
     private By loginFormLink = By.xpath("//a[@href='https://testare-manuala.locdejoacapentruitsti.com/blog/login/' and text()='Login']");
     private By logoutLink = By.xpath("//a[@href='https://testare-manuala.locdejoacapentruitsti.com/blog/logout/' and text()='Logout']");
 
+       public void openChromeBrowser(){
+        System.setProperty("webdriver.chrome.driver","C://Users//ACER//Downloads//chromedriver.exe");
+    }
 
     public void openHomePage(){
         openUrl(pageUrl);
