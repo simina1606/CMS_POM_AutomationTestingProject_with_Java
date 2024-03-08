@@ -9,6 +9,7 @@ public class PositiveTests extends BaseTestClass {
     @Test
     public void CMSContactTests(){
         CMSLandingPageObject cmsLandingPageObject = new CMSLandingPageObject(driver);
+        cmsLandingPageObject.openChromeBrowser();
         cmsLandingPageObject.openHomePage();
         cmsLandingPageObject.getPageUrl();
 
@@ -20,6 +21,7 @@ public class PositiveTests extends BaseTestClass {
         cmsContactPageObject.selectRadioButton();
         Assert.assertTrue("Send button is not visible", cmsContactPageObject.isSendButtonVisible());
         cmsContactPageObject.clickSendButton();
+        driver.quit();
 
     }
 
@@ -40,6 +42,7 @@ public class PositiveTests extends BaseTestClass {
 
         String expectedSuccesfullMessage = "The account FirstNameLastName has been successfully created!"
         Assert.assertEquals("Successfull account created message is not displayed", expectedSuccesfullMessage,cmsAccountCreatedPageObject.getAccountCreatedSuccesfulMessage());
+        driver.quit()
     }
 
     @Test
@@ -62,6 +65,7 @@ public class PositiveTests extends BaseTestClass {
         Assert.assertEquals("The message on logout page is not displayed", expectedLogoutText, cmsLogoutPageObject.logoutpageText());
 
         CMSLoginPageObject cmsLoginPageObject1 = cmsLogoutPageObject.clickLogoutButton();
+        driver.quit();
 
     }
 }
