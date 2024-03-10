@@ -28,6 +28,7 @@ public class PositiveTests extends BaseTestClass {
     @Test
     public void CMSRegisterTests(){
         CMSLandingPageObject cmsLandingPageObject = new CMSLandingPageObject(driver);
+         cmsLandingPageObject.openChromeBrowser();
         cmsLandingPageObject.openHomePage();
 
         CMSRegisterPageObject cmsRegisterPageObject = cmsLandingPageObject.clickRegisterForm();
@@ -49,6 +50,7 @@ public class PositiveTests extends BaseTestClass {
     public void CMSLoginTests(){
 
         CMSLandingPageObject cmsLandingPageObject = new CMSLandingPageObject(driver);
+         cmsLandingPageObject.openChromeBrowser();
         cmsLandingPageObject.openHomePage();
 
         CMSLoginPageObject cmsLoginPageObject = cmsLandingPageObject.clickLoginForm();
